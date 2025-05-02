@@ -32,3 +32,18 @@ A serverless alerting pipeline showcasing AWS Infra-as-Code and Node.js Lambdas.
 
 - **HeartbeatTable**: `(service PK, lastSeen)`
 - **IncidentsTable**: `(incidentId PK, service, missedAt, createdAt, ExpiresAt, status {OPEN|CLOSED})`
+
+## Quick start (5 min)
+
+```bash
+# 1. clone & enter repo
+git clone git@github.com:jesusxy/incident-alert-platform.git
+cd incident-alert-platform
+
+# 2. deploy (AWS creds must already be configured)
+cd terraform
+terraform init && terraform apply -auto-approve
+
+# 3. tail logs
+aws logs tail /aws/lambda/dev-monitor-lambda --follow
+```
