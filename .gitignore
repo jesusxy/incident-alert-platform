@@ -1,0 +1,28 @@
+# Terraform working dirs and state
+**/.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.backup
+*.tfplan           # plan files
+crash.log          # Terraform crash reports
+
+# Terraform lock file (optional to track in VCS)
+.terraform.lock.hcl
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Lambda code
+/lambda/node_modules/
+/lambda.zip
+
+# Cli code
+/cli/node_modules
+/cli/.env
+
+.env
