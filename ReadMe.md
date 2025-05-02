@@ -4,7 +4,7 @@ A serverless alerting pipeline showcasing AWS Infra-as-Code and Node.js Lambdas.
 
 ## Overall Architecture
 
-**link to diagram**
+<img width="702" alt="Screenshot 2025-05-02 at 2 07 48 PM" src="https://github.com/user-attachments/assets/2fc205b5-df86-4b80-a845-f05c1137ac52" />
 
 1. **EventBridge** schedules two jobs every minute:
    - **Heartbeat Lambda** writes `lastSeen` to the Heartbeat table (10% of invocations are skipped to simulate failures).
@@ -13,20 +13,6 @@ A serverless alerting pipeline showcasing AWS Infra-as-Code and Node.js Lambdas.
    1. Generates a new `incidentId`
    2. `PutItem` into the Incidents table with `status: "OPEN"`, `createdAt`, `missedAt`, and `ExpiresAt` (TTL).
 3. (Future) **Resolver Lambda** or API marks incidents `CLOSED`.
-
-```
-[EventBridge → Heartbeat Lambda]
- ↓ writes lastSeen (or skips)
-[EventBridge → Monitor Lambda]
- ↓ reads lastSeen; if stale → SNS Publish
-[SNS Topic “alert-topic”]
- ↓ invokes
-[Processor Lambda]
- ↓ writes OPEN incident to DynamoDB
- (and optionally notifies Slack/email)
-[Optional → Resolver Lambda/API]
- ↓ updates incident to CLOSED in DynamoDB
-```
 
 **Table Schemas**
 
@@ -47,3 +33,10 @@ terraform init && terraform apply -auto-approve
 # 3. tail logs
 aws logs tail /aws/lambda/dev-monitor-lambda --follow
 ```
+
+**CLI Preview**
+---
+
+<img width="903" alt="Screenshot 2025-05-02 at 4 08 47 PM" src="https://github.com/user-attachments/assets/ebef6bdf-fce2-4552-a2cb-58776e0a3bb6" />
+
+
