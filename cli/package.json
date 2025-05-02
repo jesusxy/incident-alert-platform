@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "dashboard": "node dashboard.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.799.0",
+    "@aws-sdk/lib-dynamodb": "^3.799.0",
+    "chalk": "^5.4.1",
+    "cli-table3": "^0.6.5",
+    "dotenv": "^16.5.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "alert-system",
+  "version": "1.0.0",
+  "main": "heartbeat.js",
+  "scripts": {
+    "build": "rm -f ../lambda.zip && zip -r ../lambda.zip .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jesuskeys",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.799.0",
+    "@aws-sdk/client-sns": "^3.799.0",
+    "@aws-sdk/lib-dynamodb": "^3.799.0",
+    "uuid": "^11.1.0"
+  }
+}
