@@ -1,4 +1,4 @@
-# Alert-System
+# Incident Alert Platform
 
 A serverless alerting pipeline showcasing AWS Infra-as-Code and Node.js Lambdas.
 
